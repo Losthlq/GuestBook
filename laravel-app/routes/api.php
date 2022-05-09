@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 Route::post('/register', [\App\Http\Controllers\RegisterController::class,'register']);
 Route::post('/login', [\App\Http\Controllers\RegisterController::class,'login']);
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+//protected
+Route::group(['middleware' => 'auth:sanctum'], function(){
+    Route::resource('/review', \App\Http\Controllers\ReviewController::class);
 });
