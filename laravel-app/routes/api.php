@@ -21,4 +21,5 @@ Route::post('/login', [\App\Http\Controllers\RegisterController::class,'login'])
 //protected
 Route::group(['middleware' => 'auth:sanctum'], function(){
     Route::resource('/review', \App\Http\Controllers\ReviewController::class);
+    Route::resource('/review/{id}', \App\Http\Controllers\ReviewController::class);
 });
